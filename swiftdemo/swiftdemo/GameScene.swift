@@ -165,7 +165,7 @@ class GameScene: SKScene {
 
 		// See if we are still on the track
 		let over = nodes(at: player.position)
-		let roads = over.flatMap { $0.name == "road" ? $0 : nil }
+		let roads = over.compactMap { $0.name == "road" ? $0 : nil }
 		
 		if let road = roads.first as? SKTileMapNode {
 			let positionInRoad = player.convert(CGPoint(x: 0, y:0), to: road)
